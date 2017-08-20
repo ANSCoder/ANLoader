@@ -4,6 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/ANLoader.svg?style=flat)](http://cocoapods.org/pods/ANLoader)
 [![License](https://img.shields.io/cocoapods/l/ANLoader.svg?style=flat)](http://cocoapods.org/pods/ANLoader)
 [![Platform](https://img.shields.io/cocoapods/p/ANLoader.svg?style=flat)](http://cocoapods.org/pods/ANLoader)
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift3-compatible-orange.svg?style=flat" alt="Swift 3 compatible" /></a>
 
 ## Example
 
