@@ -13,8 +13,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
-        ANLoader.show("Loading", disableUI: true)
+        ANLoader.showLoading("Loading", disableUI: true)
         
         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideLoader), userInfo: nil, repeats: false)
     }
@@ -24,10 +25,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func actionShowLoader(_ sender: Any) {
-        ANLoader.show("Loading", disableUI: false)
+        ANLoader.showLoading("Loading", disableUI: false)
         
         //With Default Text
-        //ANLoader.show()
+        //ANLoader.showLoading()
     }
     
     @IBAction func actionHideLoader(_ sender: Any) {

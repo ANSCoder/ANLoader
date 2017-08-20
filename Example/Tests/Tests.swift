@@ -7,7 +7,7 @@ import ANLoader
 class TableOfContentsSpec: QuickSpec {
     override func spec() {
         describe("these will fail") {
-
+            
             it("can do maths") {
                 expect(2) == 2
             }
@@ -21,7 +21,7 @@ class TableOfContentsSpec: QuickSpec {
             }
             
             context("these will pass") {
-
+                
                 it("can do maths") {
                     expect(23) == 23
                 }

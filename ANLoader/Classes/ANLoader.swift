@@ -11,36 +11,35 @@ import UIKit
 
 public struct ANLoader {
     
-    //Make Custom Setting here
-    public struct Custom{
-        public static var activityColor: UIColor = UIColor.white
-        public static var activityBackgroundColor: UIColor = UIColor.darkGray
-        public static var activityTextColor: UIColor = UIColor.white
-        public static var activityTextFontName: String = "Verdana-Regular"
-        fileprivate static var activityWidth = (UIScreen.screenWidth / Custom.widthDivision) / 2
-        fileprivate static var activityHeight = activityWidth
-        public static var widthDivision: CGFloat {
-            get {
-                if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
-                    return  3.5
-                } else {
-                    return 1.6
-                }
+    //Quick Make Custom Loader changes here
+    public static var activityColor: UIColor = UIColor.white
+    public static var activityBackgroundColor: UIColor = UIColor.darkGray
+    public static var activityTextColor: UIColor = UIColor.white
+    public static var activityTextFontName: String = "Verdana-Regular"
+    fileprivate static var activityWidth = (UIScreen.screenWidth / widthDivision) / 2
+    fileprivate static var activityHeight = activityWidth
+    public static var widthDivision: CGFloat {
+        get {
+            guard UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad else {
+                return 1.6
             }
+            return 3.5
         }
-        public static var viewBackgroundDark: Bool = false
-        public static var loadOverApplicationWindow: Bool = false
     }
+    public static var viewBackgroundDark: Bool = false
+    public static var loadOverApplicationWindow: Bool = false
+    
     
     fileprivate static var instance: LoadingResource?
     fileprivate static var backgroundView: UIView!
     fileprivate static var hidingInProgress = false
     
-    public static func show(_ text: String, disableUI: Bool) {
+    
+    public static func showLoading(_ text: String, disableUI: Bool) {
         ANLoader().startLoadingActivity(text, with: disableUI)
     }
     
-    public static func show() {
+    public static func showLoading() {
         ANLoader().startLoadingActivity("", with: false)
     }
     
@@ -54,14 +53,13 @@ public struct ANLoader {
         
         fileprivate var textLabel: UILabel!
         fileprivate var activityView: UIActivityIndicatorView!
-        fileprivate var icon: UILabel!
         fileprivate var disableUIIntraction = false
         
         convenience init(text: String, disableUI: Bool) {
-            self.init(frame: CGRect(x: 0, y: 0, width: Custom.activityWidth, height: Custom.activityHeight))
+            self.init(frame: CGRect(x: 0, y: 0, width: activityWidth, height: activityHeight))
             center = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
             autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleBottomMargin, .flexibleRightMargin]
-            backgroundColor = Custom.activityBackgroundColor
+            backgroundColor = activityBackgroundColor
             alpha = 1
             layer.cornerRadius = 5
             
@@ -84,14 +82,14 @@ public struct ANLoader {
         fileprivate func addActivityView(_ yPosition: CGFloat){
             activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
             activityView.frame = CGRect(x: (frame.width/2) - 20, y: yPosition, width: 40, height: 40)
-            activityView.color = Custom.activityColor
+            activityView.color = activityColor
             activityView.startAnimating()
         }
         
         fileprivate func addTextLabel(_ yPosition: CGFloat, text: String){
-            textLabel = UILabel(frame: CGRect(x: 5, y: yPosition - 10, width: Custom.activityWidth - 10, height: 40))
-            textLabel.textColor = Custom.activityTextColor
-            textLabel.font = UIFont(name: Custom.activityTextFontName, size: 30)
+            textLabel = UILabel(frame: CGRect(x: 5, y: yPosition - 10, width: activityWidth - 10, height: 40))
+            textLabel.textColor = activityTextColor
+            textLabel.font = UIFont(name: activityTextFontName, size: 30)
             textLabel.adjustsFontSizeToFitWidth = true
             textLabel.minimumScaleFactor = 0.25
             textLabel.textAlignment = NSTextAlignment.center
@@ -104,7 +102,7 @@ public struct ANLoader {
         
             self.alpha = 0
             
-            if Custom.loadOverApplicationWindow {
+            if loadOverApplicationWindow {
                 UIApplication.shared.windows.first?.addSubview(self)
             } else {
                 topMostController!.view.addSubview(self)
@@ -188,7 +186,7 @@ fileprivate extension ANLoader{
             // Separate creation from showing
             ANLoader.instance = LoadingResource(text: text, disableUI: disableUI)
             DispatchQueue.main.async {
-                if Custom.viewBackgroundDark {
+                if ANLoader.viewBackgroundDark {
                     if ANLoader.backgroundView == nil {
                         ANLoader.backgroundView = UIView(frame: UIApplication.shared.keyWindow!.frame)
                     }
