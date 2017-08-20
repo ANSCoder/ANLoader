@@ -1,0 +1,22 @@
+PODS:
+  - ANLoader (0.1.0)
+  - Nimble (5.1.1)
+  - Quick (1.0.0)
+
+DEPENDENCIES:
+  - ANLoader (from `../`)
+  - Nimble (~> 5.1.1)
+  - Quick (~> 1.0.0)
+
+EXTERNAL SOURCES:
+  ANLoader:
+    :path: ../
+
+SPEC CHECKSUMS:
+  ANLoader: 4f234208d58475ea66abd50585a195b2aa5ac866
+  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
+  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
+
+PODFILE CHECKSUM: 422c6cc1fe589de8ab1e547936531532710f342f
+
+COCOAPODS: 1.2.1

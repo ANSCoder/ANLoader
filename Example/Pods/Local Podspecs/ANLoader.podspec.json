@@ -1,0 +1,22 @@
+{
+  "name": "ANLoader",
+  "version": "0.1.0",
+  "summary": "A short description of ANLoader.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/anscoder/ANLoader",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "anscoder": "nimjea@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/anscoder/ANLoader.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ANLoader/Classes/**/*"
+}
