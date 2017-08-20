@@ -3,7 +3,7 @@
 //  Pods
 //
 //  Created by Anand on 17/08/17.
-//
+//  Copyright (c) 2017 anscoder. All rights reserved.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ import UIKit
 
 public struct ANLoader {
     
-    //Quick Make Custom Loader changes here
+    //MARK: - Change the variables values here for Custom uses
     public static var activityColor: UIColor = UIColor.white
     public static var activityBackgroundColor: UIColor = UIColor.darkGray
     public static var activityTextColor: UIColor = UIColor.white
@@ -30,6 +30,7 @@ public struct ANLoader {
     public static var loadOverApplicationWindow: Bool = false
     
     
+    //MARK: - Loading View
     fileprivate static var instance: LoadingResource?
     fileprivate static var backgroundView: UIView!
     fileprivate static var hidingInProgress = false
@@ -49,6 +50,7 @@ public struct ANLoader {
         }
     }
     
+    //MARK: - Main Loading View creating here
     fileprivate class LoadingResource: UIView {
         
         fileprivate var textLabel: UILabel!
@@ -99,18 +101,12 @@ public struct ANLoader {
         fileprivate func showLoadingActivity() {
             addSubview(activityView)
             addSubview(textLabel)
-        
-            self.alpha = 0
             
-            if loadOverApplicationWindow {
-                UIApplication.shared.windows.first?.addSubview(self)
-            } else {
-                topMostController!.view.addSubview(self)
+            guard loadOverApplicationWindow else {
+                topMostViewController!.view.addSubview(self)
+                return
             }
-            
-            UIView.animate(withDuration: 0.2, animations: {
-                self.alpha = 1
-            })
+            UIApplication.shared.windows.first?.addSubview(self)
         }
         
         fileprivate func hideActivity(){
@@ -174,13 +170,13 @@ fileprivate extension ANLoader{
             
             guard ANLoader.instance == nil else {
                 print("\n ==============================* ANLoader *=====================================")
-                print("Error: You still have an active activity, please stop that before creating a new one")
+                print("Error: Loadering already active now, please stop that before creating a new one.")
                 return
             }
             
-            guard topMostController != nil else {
+            guard topMostViewController != nil else {
                 print("\n ==============================* ANLoader *=====================================")
-                print("Error: You don't have any views set. You may be calling them in viewDidLoad. Try viewDidAppear instead.")
+                print("Error: You don't have any views set. You may be calling in viewDidLoad or try inside main thread.")
                 return
             }
             // Separate creation from showing
@@ -191,7 +187,7 @@ fileprivate extension ANLoader{
                         ANLoader.backgroundView = UIView(frame: UIApplication.shared.keyWindow!.frame)
                     }
                     ANLoader.backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0)
-                    topMostController?.view.addSubview(ANLoader.backgroundView)
+                    topMostViewController?.view.addSubview(ANLoader.backgroundView)
                     UIView.animate(withDuration: 0.2, animations: {ANLoader.backgroundView.backgroundColor = ANLoader.backgroundView.backgroundColor?.withAlphaComponent(0.5)})
                 }
                 ANLoader.instance?.showLoadingActivity()
@@ -226,7 +222,7 @@ fileprivate extension UIScreen {
     }
 }
 
-fileprivate var topMostController: UIViewController? {
+fileprivate var topMostViewController: UIViewController? {
     var presentedVC = UIApplication.shared.keyWindow?.rootViewController
     while let controller = presentedVC?.presentedViewController {
         presentedVC = controller
