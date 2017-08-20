@@ -12,16 +12,19 @@ Create loading view with just a single lines of code.
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-![demo](https://raw.githubusercontent.com/ANSCoder/ANLoader/master/Images/Loading.gif)
+
+![](https://raw.githubusercontent.com/ANSCoder/ANLoader/master/Images/Loading.gif)
 
 
 ## How to start loading:
+
 ```swift
 ANLoader.showLoading("Loading", disableUI: true)
 ```
+
 'disableUI' stops user interactions until you hide loadingactivity.  
 
-or user directly without disable UI.
+##Use directly without disable UI:
 
 ```swift
 ANLoader.showLoading()
@@ -32,7 +35,7 @@ ANLoader.showLoading()
 ANLoader.hide()
 ```
 
-##Custom Settings
+##Custom Settings:
 
 ```swift
 ANLoader.activityColor = .darkGray
