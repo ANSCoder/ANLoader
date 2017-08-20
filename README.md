@@ -10,15 +10,15 @@
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.🎉
+To run the example project, clone the repo, and run `pod install` from the Example directory first. 🎉
 
 
 ![](https://raw.githubusercontent.com/ANSCoder/ANLoader/master/Example/ANLoader/Images.xcassets/Sticker%20Pack.stickerpack/Loading.sticker/Loading.gif)
 
 
-### 🛠How to start loading
+### 🛠 How to start loading
 
-By using a simple line create loading view.☝🏻
+By using a simple line create loading view. ☝🏻
 
 ```swift
 ANLoader.showLoading("Loading", disableUI: true)
@@ -26,21 +26,23 @@ ANLoader.showLoading("Loading", disableUI: true)
 
 By choosing 'disableUI' stops user interactions until you hide loading Activity. 🙌
 
-### ⚡️Use directly without disable UI
+### ⚡️ Use directly without disable UI
 
 ```swift
 ANLoader.showLoading()
 ```
 
-### 🖐🏻How to dismiss loading
+### 🖐🏻 How to dismiss loading
 
-No need to call other extra things it will be manage automatically.👏🏻
+No need to call other extra things it will be manage automatically. 👏🏻
 
 ```swift
 ANLoader.hide()
 ```
 
 ### 📝 Custom Settings
+
+Easy to make chnages by choosing options 🔧
 
 ```swift
 
@@ -50,11 +52,11 @@ ANLoader.activityTextColor = .clear
 
 ```
 
-## 🤔Requirements
+## 🤔 Requirements
 
 Deployment target of your App is >= iOS 9.0
 
-## 💻Installation
+## 💻 Installation
 
 ANLoader is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -63,10 +65,10 @@ it, simply add the following line to your Podfile:
 pod "ANLoader"
 ```
 
-## 👤Author
+## 👤 Author
 
 anscoder (Anand), nimjea@gmail.com
 
-## 📄License
+## 📄 License
 
 ANLoader is available under the MIT license. See the LICENSE file for more info.
