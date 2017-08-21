@@ -42,7 +42,7 @@ ANLoader.hide()
 
 ### 📝 Custom Settings
 
-Easy to make chnages by choosing options 🔧
+Easy to make changes by choosing options 🔧
 
 ```swift
 
