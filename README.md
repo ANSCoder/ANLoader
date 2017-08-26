@@ -71,4 +71,4 @@ anscoder (Anand), nimjea@gmail.com
 
 ## 📄 License
 
-ANLoader is available under the MIT license. See the [[LICENSE|https://github.com/ANSCoder/ANLoader/blob/master/LICENSE]] file for more info.
+ANLoader is available under the MIT license. See the [LICENSE]:  https://github.com/ANSCoder/ANLoader/blob/master/LICENSE file for more info.
