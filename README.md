@@ -54,7 +54,8 @@ ANLoader.activityTextColor = .clear
 
 ## 🤔 Requirements
 
-Deployment target of your App is >= iOS 8.0
+..* Deployment target of your App is >= iOS 9.0
+..* Xcode 8
 
 ## 💻 Installation
 
@@ -62,7 +63,7 @@ ANLoader is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "ANLoader"
+pod 'ANLoader', :git => 'https://github.com/ANSCoder/ANLoader.git'
 ```
 
 ## 👤 Author
