@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ANLoader'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'ANLoader view helps for creating loading view in just a single lines of code.'
 
 
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/anscoder/ANLoader.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/anand8402'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.source_files = 'ANLoader/Classes/**/*'
   s.frameworks = 'UIKit'
 
