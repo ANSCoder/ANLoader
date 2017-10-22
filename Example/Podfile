@@ -1,12 +1,9 @@
 use_frameworks!
 
 target 'ANLoader_Example' do
-  pod 'ANLoader', :path => 'https://github.com/anscoder/ANLoader.git'
+  pod 'ANLoader', '~> 0.1'
 
   target 'ANLoader_Tests' do
     inherit! :search_paths
-
-    pod 'Quick', '~> 1.0.0'
-  pod 'Nimble', '~> 5.1.1'
   end
 end

@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideLoader), userInfo: nil, repeats: false)
     }
 
-    func hideLoader(){
+    @objc func hideLoader(){
          ANLoader.hide()
     }
     
