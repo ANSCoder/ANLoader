@@ -1,0 +1,11 @@
+framework module ANLoader {
+  umbrella header "ANLoader-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module ANLoader.Swift {
+    header "ANLoader-Swift.h"
+    requires objc
+}

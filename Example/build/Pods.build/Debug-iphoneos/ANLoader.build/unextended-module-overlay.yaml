@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/anand/Documents/ANLoader/Example/build/Debug-iphoneos/ANLoader/ANLoader.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/anand/Documents/ANLoader/Example/build/Pods.build/Debug-iphoneos/ANLoader.build/unextended-module.modulemap',
+    }]
+  }]
+}

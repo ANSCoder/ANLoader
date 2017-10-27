@@ -1,0 +1,10 @@
+framework module ANLoader {
+  umbrella header "ANLoader-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module ANLoader.__Swift {
+    exclude header "ANLoader-Swift.h"
+}
