@@ -68,7 +68,7 @@ pod 'ANLoader', :git => 'https://github.com/ANSCoder/ANLoader.git'
 
 ## 👤 Author
 
-anscoder (Anand), nimjea@gmail.com
+anscoder (Anand)
 
 ## 📄 License
 
