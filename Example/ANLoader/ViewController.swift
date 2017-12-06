@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         ANLoader.pulseAnimation = true
 //        ANLoader.activityTextColor = .clear
 //        ANLoader.activityColor = .darkGray
+        
         ANLoader.showLoading("Loading", disableUI: true)
         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideLoader), userInfo: nil, repeats: false)
     }
