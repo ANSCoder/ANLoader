@@ -1,13 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -21,6 +26,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dH9-1A-2xe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brC-5Z-AmS">
                                 <rect key="frame" x="16" y="28" width="134" height="32"/>
                                 <color key="backgroundColor" red="0.41217606967011855" green="0.083521260469742287" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
@@ -47,10 +55,14 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ymy-0G-6oh" firstAttribute="width" secondItem="brC-5Z-AmS" secondAttribute="width" id="0Ji-9r-A3L"/>
+                            <constraint firstItem="dH9-1A-2xe" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="1nN-pb-asg"/>
                             <constraint firstAttribute="trailing" secondItem="ymy-0G-6oh" secondAttribute="trailing" constant="16" id="51S-7q-jeM"/>
                             <constraint firstItem="ymy-0G-6oh" firstAttribute="leading" secondItem="brC-5Z-AmS" secondAttribute="trailing" constant="20" id="DUK-fZ-1qD"/>
+                            <constraint firstItem="dH9-1A-2xe" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="GLI-kN-MtJ"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="dH9-1A-2xe" secondAttribute="bottom" id="RaZ-BT-Awv"/>
                             <constraint firstItem="brC-5Z-AmS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="SAQ-n0-A5O"/>
                             <constraint firstItem="brC-5Z-AmS" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="SJJ-Lp-g0d"/>
+                            <constraint firstAttribute="trailing" secondItem="dH9-1A-2xe" secondAttribute="trailing" id="Sh6-M7-qBr"/>
                             <constraint firstItem="ymy-0G-6oh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="cCQ-eo-ioJ"/>
                             <constraint firstItem="ymy-0G-6oh" firstAttribute="height" secondItem="brC-5Z-AmS" secondAttribute="height" id="qny-c9-Ck7"/>
                         </constraints>
