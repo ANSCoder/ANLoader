@@ -15,6 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     
         ANLoader.activityBackgroundColor = .red
+        ANLoader.pulseAnimation = true
 //        ANLoader.activityTextColor = .clear
 //        ANLoader.activityColor = .darkGray
         ANLoader.showLoading("Loading", disableUI: true)

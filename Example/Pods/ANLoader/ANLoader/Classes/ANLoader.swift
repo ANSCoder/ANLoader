@@ -12,6 +12,7 @@ import QuartzCore
 public struct ANLoader {
     
     //MARK: - Change the variables values here for Custom uses
+    public static var pulseAnimation = true
     public static var activityColor: UIColor = UIColor.white
     public static var activityBackgroundColor: UIColor = UIColor.darkGray
     public static var activityTextColor: UIColor = UIColor.white
@@ -89,11 +90,15 @@ public struct ANLoader {
             addPulseAnimation()
         }
         
+        //MARK: - Pulse Animation adding here
         fileprivate func addPulseAnimation(){
+            guard pulseAnimation else {
+                return
+            }
             DispatchQueue.main.async {
                 let pulseAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
                 pulseAnimation.duration = 0.4
-                pulseAnimation.fromValue = 0.5
+                pulseAnimation.fromValue = 0.8
                 pulseAnimation.toValue = 1
                 pulseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
                 pulseAnimation.autoreverses = true
@@ -135,8 +140,8 @@ public struct ANLoader {
         fileprivate func hideActivity(){
             checkBackgoundWasClear()
             DispatchQueue.main.async {
-                UIView.transition(with: self, duration: 0.2, options: .curveEaseOut, animations: {
-                    self.alpha = 0.3
+                UIView.transition(with: self, duration: 0.3, options: .curveEaseOut, animations: {
+                    self.alpha = 0.2
                     self.transform = CGAffineTransform(scaleX: self.fadeOutValue, y: self.fadeOutValue)
                 }, completion: { (value: Bool) in
                     DispatchQueue.main.async {
@@ -162,13 +167,13 @@ public struct ANLoader {
             hidingInProgress = false
             
             if backgroundView != nil {
-                UIView.animate(withDuration: 0.3, animations: {
+                UIView.animate(withDuration: 0.1, animations: {
                     backgroundView.backgroundColor = backgroundView.backgroundColor?.withAlphaComponent(0)
                 }, completion: { _ in
                     backgroundView.removeFromSuperview()
                 })
             }
-            
+
             guard disableUIIntraction else {
                 return
             }
