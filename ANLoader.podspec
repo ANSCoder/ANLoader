@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ANLoader'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'ANLoader view helps for creating loading view in just a single lines of code.'
 
 
