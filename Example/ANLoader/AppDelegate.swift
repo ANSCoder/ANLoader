@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ANLoader
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        //Set Up ANLoader
+        ANLoader.activityBackgroundColor = .red
+        ANLoader.pulseAnimation = true
+        //ANLoader.activityTextColor = .clear
+        //ANLoader.activityColor = .darkGray
         return true
     }
     

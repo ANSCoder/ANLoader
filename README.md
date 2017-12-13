@@ -45,12 +45,13 @@ ANLoader.hide()
 Easy to make changes by choosing options 🔧
 
 ```swift
-
+ANLoader.pulseAnimation = true //It will animate your Loading
 ANLoader.activityColor = .darkGray
 ANLoader.activityBackgroundColor = .clear
 ANLoader.activityTextColor = .clear
 
 ```
+#### Note : - Please keep in mind activityColor and activityBackgroundColor should be different.Otherwise you can manage by your self. Add custom settings in the AppDelegate class.
 
 ## 🤔 Requirements
 
@@ -65,6 +66,10 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'ANLoader', :git => 'https://github.com/ANSCoder/ANLoader.git'
 ```
+
+#### or
+
+Manually drag and drop `ANLoader.swift` single file inside your project.
 
 ## 👤 Author
 
