@@ -51,6 +51,8 @@ ANLoader.activityBackgroundColor = .clear
 ANLoader.activityTextColor = .clear
 
 ```
+![](https://github.com/ANSCoder/ANLoader/blob/master/Example/ANLoader/Images.xcassets/loading.imageset/loading.png)
+
 #### Note : - Please keep in mind activityColor and activityBackgroundColor should be different.Otherwise you can manage by your self. Add custom settings in the AppDelegate class.
 
 ## 🤔 Requirements
