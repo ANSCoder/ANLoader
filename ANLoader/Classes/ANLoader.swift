@@ -4,14 +4,31 @@
 //
 //  Created by Anand on 17/08/17.
 //  Copyright (c) 2017 anscoder. All rights reserved.
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
 //
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 import UIKit
-
+import QuartzCore
 
 public struct ANLoader {
     
     //MARK: - Change the variables values here for Custom uses
+    public static var pulseAnimation = true
     public static var activityColor: UIColor = UIColor.white
     public static var activityBackgroundColor: UIColor = UIColor.darkGray
     public static var activityTextColor: UIColor = UIColor.white
@@ -52,7 +69,6 @@ public struct ANLoader {
     
     //MARK: - Main Loading View creating here
     fileprivate class LoadingResource: UIView {
-        
         fileprivate var textLabel: UILabel!
         fileprivate var activityView: UIActivityIndicatorView!
         fileprivate var disableUIIntraction = false
@@ -71,14 +87,40 @@ public struct ANLoader {
             
             addTextLabel(yPosition + activityView.frame.size.height, text: text)
             
-            self.dropShadow()
-            self.addBorder()
+            //Apply here Border & Shadow
+            checkActivityBackgroundColor()
             
             guard disableUI else {
                 return
             }
             UIApplication.shared.beginIgnoringInteractionEvents()
             disableUIIntraction = true
+        }
+        
+        private func checkActivityBackgroundColor(){
+            guard activityBackgroundColor != .clear else {
+                return
+            }
+            self.dropShadow()
+            self.addBorder()
+            addPulseAnimation()
+        }
+        
+        //MARK: - Pulse Animation adding here
+        fileprivate func addPulseAnimation(){
+            guard pulseAnimation else {
+                return
+            }
+            DispatchQueue.main.async {
+                let pulseAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
+                pulseAnimation.duration = 0.4
+                pulseAnimation.fromValue = 0.8
+                pulseAnimation.toValue = 1
+                pulseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                pulseAnimation.autoreverses = true
+                pulseAnimation.repeatCount = .greatestFiniteMagnitude
+                self.layer.add(pulseAnimation, forKey: "animateOpacity")
+            }
         }
         
         fileprivate func addActivityView(_ yPosition: CGFloat){
@@ -109,17 +151,29 @@ public struct ANLoader {
             UIApplication.shared.windows.first?.addSubview(self)
         }
         
+        fileprivate var fadeOutValue: CGFloat = 10.0
+        
         fileprivate func hideActivity(){
+            checkBackgoundWasClear()
             DispatchQueue.main.async {
-                UIView.transition(with: self, duration: 0.2, options: .curveEaseOut, animations: {
+                UIView.transition(with: self, duration: 0.3, options: .curveEaseOut, animations: {
                     self.alpha = 0.2
-                    self.transform = CGAffineTransform(scaleX: 2,y: 2)
+                    self.transform = CGAffineTransform(scaleX: self.fadeOutValue, y: self.fadeOutValue)
                 }, completion: { (value: Bool) in
                     DispatchQueue.main.async {
                         self.clearView()
                     }
                 })
             }
+        }
+        
+        fileprivate func checkBackgoundWasClear(){
+            guard activityBackgroundColor != .clear else {
+                fadeOutValue = 2
+                return
+            }
+            textLabel.alpha = 0
+            activityView.alpha = 0
         }
         
         fileprivate func clearView(){
@@ -129,7 +183,7 @@ public struct ANLoader {
             hidingInProgress = false
             
             if backgroundView != nil {
-                UIView.animate(withDuration: 0.2, animations: {
+                UIView.animate(withDuration: 0.1, animations: {
                     backgroundView.backgroundColor = backgroundView.backgroundColor?.withAlphaComponent(0)
                 }, completion: { _ in
                     backgroundView.removeFromSuperview()
@@ -229,4 +283,3 @@ fileprivate var topMostViewController: UIViewController? {
     }
     return presentedVC
 }
-
