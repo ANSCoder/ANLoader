@@ -28,6 +28,7 @@ import QuartzCore
 public struct ANLoader {
     
     //MARK: - Change the variables values here for Custom uses
+    public static var showFadeOutAnimation = false
     public static var pulseAnimation = true
     public static var activityColor: UIColor = UIColor.white
     public static var activityBackgroundColor: UIColor = UIColor.darkGray
@@ -155,14 +156,20 @@ public struct ANLoader {
         
         fileprivate func hideActivity(){
             checkBackgoundWasClear()
+            guard showFadeOutAnimation else {
+                clearView()
+                return
+            }
+            fadeOutAnimation()
+        }
+        
+        fileprivate func fadeOutAnimation(){
             DispatchQueue.main.async {
                 UIView.transition(with: self, duration: 0.3, options: .curveEaseOut, animations: {
-                    self.alpha = 0.2
                     self.transform = CGAffineTransform(scaleX: self.fadeOutValue, y: self.fadeOutValue)
+                    self.alpha = 0.2
                 }, completion: { (value: Bool) in
-                    DispatchQueue.main.async {
-                        self.clearView()
-                    }
+                    self.clearView()
                 })
             }
         }
@@ -283,3 +290,4 @@ fileprivate var topMostViewController: UIViewController? {
     }
     return presentedVC
 }
+
