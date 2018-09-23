@@ -1,0 +1,4 @@
+os: osx
+osx_image: xcode10
+language: swift
+script: xcodebuild -workspace ANLoader.xcworkspace -scheme ANLoader-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO | xcpretty -c
