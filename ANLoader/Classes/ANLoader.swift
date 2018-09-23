@@ -49,8 +49,8 @@ public struct ANLoader {
     
     
     //MARK: - Loading View
-    fileprivate static var instance: LoadingResource?
-    fileprivate static var backgroundView: UIView!
+    public static var instance: LoadingResource?
+    public static var backgroundView: UIView!
     fileprivate static var hidingInProgress = false
     
     
@@ -69,7 +69,7 @@ public struct ANLoader {
     }
     
     //MARK: - Main Loading View creating here
-    fileprivate class LoadingResource: UIView {
+    public class LoadingResource: UIView {
         fileprivate var textLabel: UILabel!
         fileprivate var activityView: UIActivityIndicatorView!
         fileprivate var disableUIIntraction = false
@@ -117,7 +117,7 @@ public struct ANLoader {
                 pulseAnimation.duration = 0.4
                 pulseAnimation.fromValue = 0.8
                 pulseAnimation.toValue = 1
-                pulseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                pulseAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
                 pulseAnimation.autoreverses = true
                 pulseAnimation.repeatCount = .greatestFiniteMagnitude
                 self.layer.add(pulseAnimation, forKey: "animateOpacity")
@@ -125,7 +125,7 @@ public struct ANLoader {
         }
         
         fileprivate func addActivityView(_ yPosition: CGFloat){
-            activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+            activityView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
             activityView.frame = CGRect(x: (frame.width/2) - 20, y: yPosition, width: 40, height: 40)
             activityView.color = activityColor
             activityView.startAnimating()
@@ -258,23 +258,20 @@ fileprivate extension ANLoader{
 }
 
 fileprivate extension UIScreen {
-    class var orientation: UIInterfaceOrientation {
-        get {
-            return UIApplication.shared.statusBarOrientation
-        }
-    }
+    
     class var screenWidth: CGFloat {
         get {
-            if UIInterfaceOrientationIsPortrait(orientation) {
+            if UIInterfaceOrientation.portrait.isPortrait {
                 return UIScreen.main.bounds.size.width
             } else {
                 return UIScreen.main.bounds.size.height
             }
         }
     }
+    
     class var screenHeight: CGFloat {
         get {
-            if UIInterfaceOrientationIsPortrait(orientation) {
+            if UIInterfaceOrientation.portrait.isPortrait {
                 return UIScreen.main.bounds.size.height
             } else {
                 return UIScreen.main.bounds.size.width
@@ -290,4 +287,3 @@ fileprivate var topMostViewController: UIViewController? {
     }
     return presentedVC
 }
-

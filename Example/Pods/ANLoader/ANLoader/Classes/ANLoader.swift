@@ -259,12 +259,6 @@ fileprivate extension ANLoader{
 
 fileprivate extension UIScreen {
     
-    class var orientation: UIInterfaceOrientation {
-        get {
-            return UIApplication.shared.statusBarOrientation
-        }
-    }
-    
     class var screenWidth: CGFloat {
         get {
             if UIInterfaceOrientation.portrait.isPortrait {
