@@ -14,14 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         //Set Up ANLoader
         ANLoader.activityBackgroundColor = .red
         ANLoader.pulseAnimation = true
         //ANLoader.activityTextColor = .clear
         //ANLoader.activityColor = .darkGray
+        
         return true
     }
     
