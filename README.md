@@ -2,11 +2,11 @@
 
 👾 Create loading view with just a single lines of code. ⛳️
 
-[![CI Status](http://img.shields.io/travis/anscoder/ANLoader.svg?style=flat)](https://travis-ci.org/anscoder/ANLoader)
+[![Build Status](https://travis-ci.com/ANSCoder/ANLoader.svg?branch=master)](https://travis-ci.com/ANSCoder/ANLoader)
 [![Version](https://img.shields.io/cocoapods/v/ANLoader.svg?style=flat)](http://cocoapods.org/pods/ANLoader)
 [![License](https://img.shields.io/cocoapods/l/ANLoader.svg?style=flat)](http://cocoapods.org/pods/ANLoader)
 [![Platform](https://img.shields.io/cocoapods/p/ANLoader.svg?style=flat)](http://cocoapods.org/pods/ANLoader)
-<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift3-compatible-orange.svg?style=flat" alt="Swift 3 compatible" /></a>
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift4.2-compatible-orange.svg?style=flat" alt="Swift 4 compatible" /></a>
 
 ## Example
 
@@ -58,7 +58,7 @@ ANLoader.activityTextColor = .clear
 ## 🤔 Requirements
 
 * Deployment target of your App is >= iOS 9.0
-* Xcode 8+
+* Xcode 9+
 
 ## 💻 Installation
 
