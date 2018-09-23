@@ -58,7 +58,7 @@ ANLoader.activityTextColor = .clear
 ## 🤔 Requirements
 
 * Deployment target of your App is >= iOS 9.0
-* Xcode 8+
+* Xcode 9+
 
 ## 💻 Installation
 
