@@ -15,7 +15,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         ANLoader.showLoading("Loading", disableUI: true)
-        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideLoader), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 5.0,
+                             target: self,
+                             selector: #selector(hideLoader),
+                             userInfo: nil,
+                             repeats: false)
     }
 
     @objc func hideLoader(){
