@@ -69,6 +69,12 @@ it, simply add the following line to your Podfile:
 pod 'ANLoader', :git => 'https://github.com/ANSCoder/ANLoader.git'
 ```
 
+### Swift Package Manager
+```swift
+dependencies: [
+  .package(url: "https://github.com/ANSCoder/ANLoader.git", from: "2.0.0")
+]
+```
 #### or
 
 Manually drag and drop `ANLoader.swift` single file inside your project.
