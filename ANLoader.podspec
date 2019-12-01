@@ -16,8 +16,8 @@ s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'anscoder' => 'nimjea@gmail.com' }
 s.source           = { :git => 'https://github.com/anscoder/ANLoader.git', :tag => s.version }
 s.social_media_url = 'https://twitter.com/anand8402'
-s.swift_versions = ['5.0', '5.1']
-s.ios.deployment_target = '10.0'
+s.swift_versions = '5.0'
+s.ios.deployment_target = '10.2'
 s.source_files = 'ANLoader/Classes/**/*'
 s.frameworks = 'UIKit'
 
