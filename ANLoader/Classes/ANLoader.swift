@@ -75,9 +75,15 @@ public struct ANLoader {
         fileprivate var disableUIIntraction = false
         
         convenience init(text: String, disableUI: Bool) {
-            self.init(frame: CGRect(x: 0, y: 0, width: activityWidth, height: activityHeight))
+            self.init(frame: CGRect(x: 0,
+                                    y: 0,
+                                    width: activityWidth,
+                                    height: activityHeight))
             center = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
-            autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin, .flexibleBottomMargin, .flexibleRightMargin]
+            autoresizingMask = [.flexibleTopMargin,
+                                .flexibleLeftMargin,
+                                .flexibleBottomMargin,
+                                .flexibleRightMargin]
             backgroundColor = activityBackgroundColor
             alpha = 1
             layer.cornerRadius = 5
@@ -102,8 +108,8 @@ public struct ANLoader {
             guard activityBackgroundColor != .clear else {
                 return
             }
-            self.dropShadow()
-            self.addBorder()
+            dropShadow()
+            addBorder()
             addPulseAnimation()
         }
         
@@ -112,15 +118,15 @@ public struct ANLoader {
             guard pulseAnimation else {
                 return
             }
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 let pulseAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
                 pulseAnimation.duration = 0.4
                 pulseAnimation.fromValue = 0.8
                 pulseAnimation.toValue = 1
-                pulseAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+                pulseAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
                 pulseAnimation.autoreverses = true
                 pulseAnimation.repeatCount = .greatestFiniteMagnitude
-                self.layer.add(pulseAnimation, forKey: "animateOpacity")
+                self?.layer.add(pulseAnimation, forKey: "animateOpacity")
             }
         }
         
@@ -165,7 +171,10 @@ public struct ANLoader {
         
         fileprivate func fadeOutAnimation(){
             DispatchQueue.main.async {
-                UIView.transition(with: self, duration: 0.3, options: .curveEaseOut, animations: {
+                UIView.transition(with: self,
+                                  duration: 0.3,
+                                  options: .curveEaseOut,
+                                  animations: {
                     self.transform = CGAffineTransform(scaleX: self.fadeOutValue, y: self.fadeOutValue)
                     self.alpha = 0.2
                 }, completion: { (value: Bool) in
@@ -208,36 +217,36 @@ public struct ANLoader {
 
 fileprivate extension UIView {
     func dropShadow(scale: Bool = true) {
-        self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.5
-        self.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.layer.shadowRadius = 5
-        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
-        self.layer.shouldRasterize = true
-        self.layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 2, height: 2)
+        layer.shadowRadius = 5
+        layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        layer.shouldRasterize = true
+        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
     
     func addBorder(){
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).cgColor
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).cgColor
     }
 }
 
 fileprivate extension ANLoader{
     
-    fileprivate func startLoadingActivity(_ text: String,with disableUI: Bool){
+    private func startLoadingActivity(_ text: String,with disableUI: Bool){
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             
             guard ANLoader.instance == nil else {
-                print("\n ==============================* ANLoader *=====================================")
-                print("Error: Loadering already active now, please stop that before creating a new one.")
+                debugPrint("\n ==============================* ANLoader *=====================================")
+                debugPrint("Error: Loadering already active now, please stop that before creating a new one.")
                 return
             }
             
             guard topMostViewController != nil else {
-                print("\n ==============================* ANLoader *=====================================")
-                print("Error: You don't have any views set. You may be calling in viewDidLoad or try inside main thread.")
+                debugPrint("\n ==============================* ANLoader *=====================================")
+                debugPrint("Error: You don't have any views set. You may be calling in viewDidLoad or try inside main thread.")
                 return
             }
             // Separate creation from showing
@@ -280,7 +289,7 @@ fileprivate extension UIScreen {
     }
 }
 
-fileprivate var topMostViewController: UIViewController? {
+private var topMostViewController: UIViewController? {
     var presentedVC = UIApplication.shared.keyWindow?.rootViewController
     while let controller = presentedVC?.presentedViewController {
         presentedVC = controller
