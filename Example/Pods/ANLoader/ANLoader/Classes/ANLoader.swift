@@ -289,7 +289,7 @@ fileprivate extension UIScreen {
     }
 }
 
-fileprivate var topMostViewController: UIViewController? {
+private var topMostViewController: UIViewController? {
     var presentedVC = UIApplication.shared.keyWindow?.rootViewController
     while let controller = presentedVC?.presentedViewController {
         presentedVC = controller
