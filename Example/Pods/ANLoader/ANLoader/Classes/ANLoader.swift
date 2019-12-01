@@ -215,7 +215,7 @@ public struct ANLoader {
     }
 }
 
-fileprivate extension UIView {
+private extension UIView {
     func dropShadow(scale: Bool = true) {
         layer.masksToBounds = false
         layer.shadowColor = UIColor.black.cgColor
@@ -233,7 +233,7 @@ fileprivate extension UIView {
     }
 }
 
-fileprivate extension ANLoader{
+private extension ANLoader{
     
     private func startLoadingActivity(_ text: String,with disableUI: Bool){
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -266,7 +266,7 @@ fileprivate extension ANLoader{
     }
 }
 
-fileprivate extension UIScreen {
+private extension UIScreen {
     
     class var screenWidth: CGFloat {
         get {
