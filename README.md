@@ -6,7 +6,7 @@
 [![Version](https://img.shields.io/cocoapods/v/ANLoader.svg?style=flat)](http://cocoapods.org/pods/ANLoader)
 [![License](https://img.shields.io/cocoapods/l/ANLoader.svg?style=flat)](http://cocoapods.org/pods/ANLoader)
 [![Platform](https://img.shields.io/cocoapods/p/ANLoader.svg?style=flat)](http://cocoapods.org/pods/ANLoader)
-<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift4.2-compatible-orange.svg?style=flat" alt="Swift 4 compatible" /></a>
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift4.2-compatible-orange.svg?style=flat" alt="Swift 5.0 compatible" /></a>
 
 ## Example
 
@@ -57,8 +57,8 @@ ANLoader.activityTextColor = .clear
 
 ## 🤔 Requirements
 
-* Deployment target of your App is >= iOS 9.0
-* Xcode 9+
+* Deployment target of your App is >= iOS 10.2
+* Xcode 10+
 
 ## 💻 Installation
 
